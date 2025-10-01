@@ -31,14 +31,78 @@
 // o {titulo: "Don Quijote", autor: "Miguel de Cervantes", año: 1605}
 // o ]
 // o Salida esperada: mostrar la lista completa de libros.
+
+let biblioteca = [
+    { "titulo": "Fahrenheit 451", "autor": "Ray Bradbury", "año": 1953 },
+    { "titulo": "Carrie", "autor": "Stephen King", "año": 1974 },
+    { "titulo": "El instituto", "autor": "Stephen King", "año": 2019 },
+    { "titulo": "Normal People", "autor": "Sally Rooney", "año": 2018 },
+    { "titulo": "Klara y el sol", "autor": "Kazuo Ishiguro", "año": 2021 }
+];
+
+
+let libro_titulo, libro_autor, libro_año
+
+for (let libro of biblioteca) {
+    libro_titulo = libro["titulo"]
+    libro_autor = libro["autor"]
+    libro_año = libro["año"]
+    console.log(libro_titulo, libro_autor, libro_año)
+}
+
 // 2. Buscar un libro por título
 // Pedir al usuario un título y verificar si existe en el arreglo de libros.
+
+function BuscarLibroTitulo(titulo, arreglo) {
+    for (let libro of arreglo) {
+        libro_titulo = libro["titulo"]
+        if (titulo === libro_titulo) {
+            console.log(`El libro ${titulo} si existe en la biblioteca.`)
+        }
+    }
+}
+
+BuscarLibroTitulo("El instituto", biblioteca)
+
 // 3. Contar libros publicados después del año 2000
 // Recorrer el arreglo y mostrar cuántos cumplen esa condición.
+
+function CantidadLibrosFecha(año, arreglo) {
+    let contador = 0
+    for (let libro of arreglo) {
+        libro_año = libro["año"]
+        if (año <= libro_año) {
+            contador++
+        }
+    }
+    return contador
+}
+
+console.log(CantidadLibrosFecha(2000, biblioteca))
+
 // 4. Concatenar todos los títulos en una sola cadena
 // Mostrar en un texto: “Cien años de soledad – Don Quijote – El Principito …”
+
+function ConcatenarTitulos(arreglo) {
+    let titulos = ""
+    for (let libro of arreglo) {
+        libro_titulo = libro["titulo"]
+        if (titulos === "") {
+            titulos += libro_titulo 
+        } else {
+            titulos += ` - ${libro_titulo}`
+        }
+    }
+    return titulos
+}
+
+console.log(ConcatenarTitulos(biblioteca))
+
 // 5. Actualizar el año de publicación de un libro
 // Pedir el título y un nuevo año, recorrer el arreglo y modificar ese objeto.
+
+
+
 //  Bloque 2: Ejercicios con Pila de Objetos
 // 6. Implementar una pila de libros (push)
 // Crear una pila vacía e ir agregando libros con push().
