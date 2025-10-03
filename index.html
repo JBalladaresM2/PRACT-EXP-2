@@ -5,8 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100%;
+        }
+
+        button, select {
+            padding: 10px;
+        }
+    </style>
 <body>
-    
+    <select name="ejercicios" id="ejercicios">
+        <option value="ejercicio_1">ejercicio 1</option>
+        <option value="ejercicio_2">ejercicio 2</option>
+        <option value="ejercicio_3">ejercicio 3</option>
+        <option value="ejercicio_4">ejercicio 4</option>
+        <option value="ejercicio_5">ejercicio 5</option>
+        <option value="ejercicio_6">ejercicio 6</option>
+        <option value="ejercicio_7">ejercicio 7</option>
+        <option value="ejercicio_8">ejercicio 8</option>
+        <option value="ejercicio_9">ejercicio 9</option>
+        <option value="ejercicio_10">ejercicio 10</option>
+    </select>
+    <button type="button" onclick="console.clear(), ejecutar()">EJECUTAR EJERCICIO</button>
 </body>
     <script src="sistema_biblioteca.js"></script>
+    <script>
+    function ejecutar() {
+        let select = document.getElementById("ejercicios");
+        let valor = select.value; // ejemplo: "ejercicio_3"
+
+        if (valor && typeof window[valor] === "function") {
+          window[valor](); // ejecuta la función definida en sistema_biblioteca.js
+        } else {
+          alert("Selecciona un ejercicio válido");
+        }
+    }
+    </script>
 </html>
